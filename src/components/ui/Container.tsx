@@ -1,18 +1,23 @@
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-type ContainerProps = {
+type ContainerProps = HTMLAttributes<HTMLDivElement> & {
     children: ReactNode
-    className?: string
 }
 
 export function Container({
     children,
     className = '',
+    ...props
 }: ContainerProps) {
     return (
         <div
+            {...props}
             className={[
-                'mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12',
+                'mx-auto w-full',
+                'max-w-(--container-max-width)',
+                'px-(--container-padding-mobile)',
+                'sm:px-(--container-padding-tablet)', 
+                'lg:px-(--container-padding-desktop)',
                 className,
             ].join(' ')}
         >
