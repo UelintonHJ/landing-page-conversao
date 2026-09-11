@@ -82,7 +82,7 @@ export function Button({
             className={[
                 'inline-flex items-center justify-center',
                 'gap-2',
-                'rounded-(--radius-md)',
+                'rounded-md',
                 'font-semibold',
                 'transition-colors',
                 'duration-(--duration-normal)',
