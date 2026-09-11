@@ -4,7 +4,7 @@ import {
     Target,
 } from 'lucide-react'
 
-import { Container } from '../ui/Container'
+import { Container, Typography } from '../ui'
 
 const benefits = [
     {
@@ -31,34 +31,32 @@ export function BenefitsSection() {
     return (
         <section
             aria-labelledby='benefits-title'
-            className='bg-white py-24 sm:py-32'
+            className='bg-surface py-24 sm:py-32'
         >
             <Container>
                 <div className='max-w-2xl'>
-                    <p className='text-sm font-semibold uppercase tracking-widest text-zinc-500'>
+                    <Typography variant='eyebrow'>
                         O que você vai aprender
-                    </p>
+                    </Typography>
 
-                    <h2
+                    <Typography
+                        as='h2'
+                        variant='h2'
                         id='benefits-title'
-                        className='
-                            mt-4 text-3xl font-semibold
-                            tracking-tight text-zinc-950
-                            sm:text-4xl
-                        '
+                        className='mt-4'
                     >
                         Menos teoria. Mais aplicação.
-                    </h2>
+                    </Typography>
                 </div>
 
-                <div className='mt-16 grid gap-px overflow-hidden rounded-2xl bg-zinc-200 md:grid-cols-3'>
+                <div className='mt-16 grid gap-px overflow-hidden rounded-lg bg-border-default md:grid-cols-3'>
                     {benefits.map((benefit) => {
                         const Icon = benefit.icon
 
                         return (
                             <article
                                 key={benefit.title}
-                                className='bg-white p-8 sm:p-10'
+                                className='bg-surface p-8 sm:p-10'
                             >
                                 <Icon 
                                     aria-hidden='true'
@@ -66,13 +64,20 @@ export function BenefitsSection() {
                                     strokeWidth={1.8}
                                 />
 
-                                <h3 className='mt-10 text-xl font-semibold'>
+                                <Typography
+                                    as='h3' 
+                                    variant='h3'
+                                    className='mt-10'
+                                >
                                     {benefit.title}
-                                </h3>
+                                </Typography>
 
-                                <p className='mt-4 leading-7 text-zinc-600'>
+                                <Typography 
+                                    variant='body'
+                                    className='mt-4'
+                                >
                                     {benefit.description}
-                                </p>
+                                </Typography>
                             </article>
                         )
                     })}
