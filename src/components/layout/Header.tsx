@@ -1,9 +1,10 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Container } from '../ui/Container'
+
+import { Container, Typography } from '../ui'
 
 export function Header() {
     return (
-        <header className='border-b border-zinc-200 bg-white'>
+        <header className='border-b border-border-default bg-surface'>
             <Container>
                 <nav
                     aria-label='Navegação principal'
@@ -11,21 +12,23 @@ export function Header() {
                 >
                     <a
                         href='#inicio'
-                        className='text-lg font-bold tracking-tight'
+                        className='text-lg font-bold tracking-tight text-content-primary'
                     >
-                        acelera<span className='text-zinc-400'>.</span>
+                        acelera<span className='text-content-muted'>.</span>
                     </a>
 
-                    <a href="#inscricao"
-                        className='
-                            inline-flex items-center gap-2
-                            text-sm font-semibold
-                            text-zinc-900
-                            transition-colors
-                            hover:text-zinc-500
-                        '
+                    <a
+                        href="#inscricao"
+                        className='inline-flex items-center gap-2 text-sm font-semibold text-content-primary transition-colors duration-(--duration-fast) hover:text-content-muted'
                     >
-                        Inscreva-se
+                        <Typography
+                            as='span'
+                            variant='small'
+                            className='font-semibold text-current'
+                        >
+                            Inscreva-se
+                        </Typography>
+
                         <ArrowUpRight
                             aria-hidden='true'
                             size={16}
