@@ -1,38 +1,48 @@
-import { Container } from '../ui/Container'
+import { Container, Typography } from '../ui'
+
 import { speakers } from '../../data/speakers'
 
 export function SpeakersSection() {
     return (
         <section
             aria-labelledby='speakers-title'
-            className='bg-white py-24 sm:py-32'
+            className='bg-surface py-24 sm:py-32'
         >
             <Container>
                 <div>
-                    <p className='text-sm font-semibold uppercase tracking-widest text-zinc-500'>
+                    <Typography variant='eyebrow'>
                         Especialistas
-                    </p>
+                    </Typography>
 
-                    <h2
+                    <Typography
+                        as='h2'
+                        variant='h2'
                         id='speakers-title'
-                        className='mt-4 text-3xl font-semibold tracking-tight sm:text-4xl'
+                        className='mt-4'
                     >
                         Quem estará com você
-                    </h2>
+                    </Typography>
                 </div>
 
                 <div className='mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
                     {speakers.map((speaker) => (
                         <article key={speaker.id}>
-                            <div className='aspect-4/5 rounded-2xl bg-zinc-100' />
+                            <div className='aspect-4/5 rounded-lg bg-surface-muted' />
 
-                            <h3 className='mt-6 text-xl font-semibold'>
+                            <Typography 
+                                as='h3'
+                                variant='h3'
+                                className='mt-6'
+                            >
                                 {speaker.name}
-                            </h3>
+                            </Typography>
 
-                            <p className='mt-2 text-sm text-zinc-500'>
+                            <Typography 
+                                variant='small'
+                                className='mt-2'
+                            >
                                 {speaker.role} · {speaker.company}
-                            </p>
+                            </Typography>
                         </article>
                     ))}
                 </div>
