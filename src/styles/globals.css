@@ -4,22 +4,27 @@
 @theme inline {
     --font-sans: var(--font-family-sans);
 
-    --color-surface: var(--color-surface);
-    --color-surface-subtle: var(--color-surface-subtle);
-    --color-surface-muted: var(--color-surface-muted);
-    --color-surface-inverse: var(--color-surface-inverse);
+    --color-ui-surface: var(--color-surface);
+    --color-ui-surface-subtle: var(--color-surface-subtle);
+    --color-ui-surface-muted: var(--color-surface-muted);
+    --color-ui-surface-inverse: var(--color-surface-inverse);
 
-    --color-content-primary: var(--color-content-primary);
-    --color-content-secondary: var(--color-content-secondary);
-    --color-content-muted: var(--color-content-muted);
-    --color-content-inverse: var(--color-content-inverse);
+    --color-ui-content-primary: var(--color-content-primary);
+    --color-ui-content-secondary: var(--color-content-secondary);
+    --color-ui-content-muted: var(--color-content-muted);
+    --color-ui-content-inverse: var(--color-content-inverse);
 
-    --color-border-default: var(--color-border-default);
-    --color-border-subtle: var(--color-border-subtle);
-    --color-border-strong: var(--color-border-strong);
+    --color-ui-border-default: var(--color-border-default);
+    --color-ui-border-subtle: var(--color-border-subtle);
+    --color-ui-border-strong: var(--color-border-strong);
 
-    --color-action-primary: var(--color-action-primary);
-    --color-action-primary-hover: var(--color-action-primary-hover);
+    --color-ui-action-primary: var(--color-action-primary);
+    --color-ui-action-primary-hover: var(--color-action-primary-hover);
+
+    --color-ui-action-inverse: var(--color-action-inverse);
+    --color-ui-action-inverse-hover: var(--color-action-inverse-hover);
+
+    --color-ui-focus: var(--color-focus);
 
     --radius-sm: var(--radius-sm);
     --radius-md: var(--radius-md);
@@ -54,7 +59,7 @@ body {
 
 button, 
 a {
-    -web-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
@@ -63,7 +68,7 @@ a {
 }
 
 :focus-visible {
-    outline: 2px solid var(--color-content-primary);
+    outline: 2px solid var(--color-focus);
     outline-offset: 3px;
 }
 

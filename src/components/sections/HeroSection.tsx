@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, Clock3 } from 'lucide-react'
+
 import { Button, Container, Typography } from '../ui'
 
 export function HeroSection() {
@@ -6,7 +7,7 @@ export function HeroSection() {
         <section
             id='inicio'
             aria-labelledby='hero-title'
-            className='overflow-hidden bg-surface-inverse text-content-inverse'
+            className='overflow-hidden bg-ui-surface-inverse text-ui-content-inverse'
         >
             <Container>
                 <div className='grid min-h-180 items-center gap-16 py-24 lg:grid-cols-[1.2fr_0.8fr]'>
@@ -44,7 +45,13 @@ export function HeroSection() {
                                 onClick={() => {
                                     document
                                         .getElementById('inscricao')
-                                        ?.scrollIntoView({ behavior: 'smooth', })
+                                        ?.scrollIntoView({ 
+                                            behavior: window.matchMedia(
+                                                '(prefers-reduced-motion: reduce)'
+                                            ).matches
+                                                ? 'auto' 
+                                                : 'smooth', 
+                                        })
                                 }}
                             >
                                 Quero participar gratuitamente
@@ -59,12 +66,18 @@ export function HeroSection() {
                             className='mt-12 flex flex-col gap-4 text-sm text-zinc-400 sm:flex-row sm:items-center sm:gap-8'
                         >
                             <span className='inline-flex items-center gap-2'>
-                                <CalendarDays size={17} aria-hidden='true' />
+                                <CalendarDays 
+                                    size={17} 
+                                    aria-hidden='true' 
+                                />
                                 24 de setembro
                             </span>
 
                             <span className='inline-flex items-center gap-2'>
-                                <Clock3 size={17} aria-hidden='true' />
+                                <Clock3 
+                                    size={17} 
+                                    aria-hidden='true' 
+                                />
                                 19h
                             </span>
 

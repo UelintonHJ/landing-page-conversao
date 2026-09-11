@@ -31,7 +31,7 @@ export function BenefitsSection() {
     return (
         <section
             aria-labelledby='benefits-title'
-            className='bg-surface py-24 sm:py-32'
+            className='bg-ui-surface py-24 sm:py-32'
         >
             <Container>
                 <div className='max-w-2xl'>
@@ -43,20 +43,21 @@ export function BenefitsSection() {
                         as='h2'
                         variant='h2'
                         id='benefits-title'
-                        className='mt-4'
+                        className='mt-4 max-w-xl text-2xl sm:text-4xl'
                     >
-                        Menos teoria. Mais aplicação.
+                        Menos teoria. 
+                        <span className='block sm:inline'> Mais aplicação.</span> 
                     </Typography>
                 </div>
 
-                <div className='mt-16 grid gap-px overflow-hidden rounded-lg bg-border-default md:grid-cols-3'>
+                <div className='mt-16 grid gap-px overflow-hidden rounded-lg bg-ui-border-default md:grid-cols-3'>
                     {benefits.map((benefit) => {
                         const Icon = benefit.icon
 
                         return (
                             <article
                                 key={benefit.title}
-                                className='bg-surface p-8 sm:p-10'
+                                className='bg-ui-surface p-8 sm:p-10'
                             >
                                 <Icon 
                                     aria-hidden='true'

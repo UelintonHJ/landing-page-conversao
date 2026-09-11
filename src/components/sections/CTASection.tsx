@@ -7,7 +7,7 @@ export function CTASection() {
         <section
             id='inscricao'
             aria-labelledby='cta-title'
-            className='bg-surface-inverse py-24 text-content-inverse sm:py-32'
+            className='bg-ui-surface-inverse py-24 text-ui-content-inverse sm:py-32'
         >
             <Container>
                 <div className='mx-auto max-w-3xl text-center'>

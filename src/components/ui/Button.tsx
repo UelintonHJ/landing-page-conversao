@@ -19,29 +19,29 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
     primary: [
-        'bg-action-primary',
-        'text-content-inverse',
-        'hover:bg-action-primary-hover',
+        'bg-ui-action-primary',
+        'text-ui-content-inverse',
+        'hover:bg-ui-action-primary-hover',
     ].join(' '),
 
     secondary: [
         'border',
-        'border-border-default',
-        'bg-surface',
-        'text-content-primary',
-        'hover:bg-surface-muted',
+        'border-ui-border-default',
+        'bg-ui-surface',
+        'text-ui-content-primary',
+        'hover:bg-ui-surface-muted',
     ].join(' '),
 
     inverse: [
-        'bg-action-inverse',
-        'text-content-primary',
-        'hover:bg-action-inverse-hover',
+        'bg-ui-action-inverse',
+        'text-ui-content-primary',
+        'hover:bg-ui-action-inverse-hover',
     ].join(' '),
 
     ghost: [
         'bg-transparent',
-        'text-content-primary',
-        'hover:bg-surface-muted',
+        'text-ui-content-primary',
+        'hover:bg-ui-surface-muted',
     ].join(' '),
 }
 
@@ -86,10 +86,10 @@ export function Button({
                 'font-semibold',
                 'transition-colors',
                 'duration-(--duration-normal)',
-                'ease(--ease-standard)',
+                'ease-(--ease-standard)',
                 'focus-visible:outline-2',
-                'focus-visible:outline-offset-4',
-                'focus-visible:outline-content-primary',
+                'focus-visible:ouline-offset-4',
+                'focus-visible:outline-ui-focus',
                 'disabled:pointer-events-none',
                 'disabled:opacity-50',
                 sizeClasses[size],

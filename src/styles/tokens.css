@@ -27,6 +27,10 @@
     --color-action-inverse: #ffffff;
     --color-action-inverse-hover: #e4e4e7;
 
+    /* Colors - Focus */
+
+    --color-focus: #737373;
+
     /* Typography */
 
     --font-family-sans:

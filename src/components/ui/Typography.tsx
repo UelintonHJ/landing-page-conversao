@@ -25,11 +25,11 @@ type TypographyProps<T extends ElementType> = {
 
 const variantClasses: Record<TypographyVariant, string> = {
     display: [
-        'text-5xl sm:text-6xl lg:text-[4.5rem',
+        'text-5xl sm:text-6xl lg:text-[4.5rem]',
         'font-semibold',
         'leading-(--line-height-tight)',
         'tracking-[-0.04em]',
-        'text-content-primary',
+        'text-ui-content-primary',
     ].join(' '),
 
     h1: [
@@ -37,7 +37,7 @@ const variantClasses: Record<TypographyVariant, string> = {
         'font-semibold',
         'leading-(--line-height-snug)',
         'tracking-[-0.03em]',
-        'text-content-primary',
+        'text-ui-content-primary',
     ].join(' '),
 
     h2: [
@@ -45,7 +45,7 @@ const variantClasses: Record<TypographyVariant, string> = {
         'font-semibold',
         'leading-(--line-height-snug)',
         'tracking-[-0.025em]',
-        'text-content-primary',
+        'text-ui-content-primary',
     ].join(' '),
 
     h3: [
@@ -53,31 +53,31 @@ const variantClasses: Record<TypographyVariant, string> = {
         'font-semibold',
         'leading-(--line-height-snug)',
         'tracking-[-0.015em]',
-        'text-content-primary',
+        'text-ui-content-primary',
     ].join(' '),
 
     lead: [
         'text-lg sm:text-xl',
         'leading-(--line-height-relaxed)',
-        'text-content-secondary',
+        'text-ui-content-secondary',
     ].join(' '),
 
     'body-lg': [
         'text-lg',
-        'leading-(--line-height-relaxed',
-        'text-content-secondary',
+        'leading-(--line-height-relaxed)',
+        'text-ui-content-secondary',
     ].join(' '),
 
     body: [
         'text-base',
         'leading-(--line-height-normal)',
-        'text-content-secondary',
+        'text-ui-content-secondary',
     ].join(' '),
 
     small: [
         'text-sm',
         'leading-(--line-height-normal)',
-        'text-content-secondary',
+        'text-ui-content-secondary',
     ].join(' '),
 
     eyebrow: [
@@ -85,13 +85,13 @@ const variantClasses: Record<TypographyVariant, string> = {
         'font-semibold',
         'uppercase',
         'tracking-[0.18em]',
-        'text-content-muted',
+        'text-ui-content-muted',
     ].join(' '),
 
     muted: [
         'text-sm',
         'leading-(--line-height-normal)',
-        'text-content-muted',
+        'text-ui-content-muted',
     ].join(' '),
 }
 
