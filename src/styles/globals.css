@@ -96,6 +96,27 @@ a {
     transform: translateY(0);
 }
 
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal-hidden {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.reveal {
+    transition: 
+        opacity var(--duration-slow) var(--ease-standard),
+        transform var(--duration-slow) var(--ease-standard);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
