@@ -88,7 +88,7 @@ export function Button({
                 'duration-(--duration-normal)',
                 'ease-(--ease-standard)',
                 'focus-visible:outline-2',
-                'focus-visible:ouline-offset-4',
+                'focus-visible:outline-offset-4',
                 'focus-visible:outline-ui-focus',
                 'disabled:pointer-events-none',
                 'disabled:opacity-50',
