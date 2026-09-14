@@ -10,9 +10,13 @@ import { CTASection } from '../components/sections/CTASection'
 export function App() {
     return (
         <>
+            <a className='skip-link' href='#main-content'>
+                Pular para o conteúdo
+            </a>
+
             <Header />
 
-            <main>
+            <main id='main-content'>
                 <Reveal>
                     <HeroSection />
                 </Reveal>
