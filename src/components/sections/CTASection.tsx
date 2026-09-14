@@ -1,6 +1,5 @@
-import { ArrowRight } from 'lucide-react'
-
-import { Button, Container, Typography } from '../ui'
+import { Container, Typography } from '../ui'
+import { RegistrationForm } from '../ui/RegistrationForm'
 
 export function CTASection() {
     return (
@@ -34,16 +33,7 @@ export function CTASection() {
                         Reserve seu lugar e participe gratuitamente da live.
                     </Typography>
 
-                    <div className='mt-10'>
-                        <Button variant='inverse'>
-                            Garantir minha vaga
-
-                            <ArrowRight
-                                aria-hidden='true'
-                                size={18}
-                            />
-                        </Button>
-                    </div>
+                    <RegistrationForm />
                 </div>
             </Container>
         </section>
