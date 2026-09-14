@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && tsc -p tsconfig.api.json --noEmit && vite build",
     "dev:fullstack": "vercel dev",
+    "build": "tsc -b && tsc -p tsconfig.api.json --noEmit && vite build",
     "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "preview": "vite preview"
   },
   "dependencies": {
