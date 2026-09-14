@@ -10,7 +10,7 @@ export function HeroSection() {
             className='overflow-hidden bg-ui-surface-inverse text-ui-content-inverse'
         >
             <Container>
-                <div className='grid min-h-180 items-center gap-16 py-24 lg:grid-cols-[1.2fr_0.8fr]'>
+                <div className='grid min-h-0 items-center gap-12 py-20 sm:min-h-180 sm:gap-16 sm:py-24 lg:grid-cols-[1.2fr_0.8fr]'>
                     <div className='max-w-3xl'>
                         <Typography
                             variant='eyebrow'
