@@ -130,4 +130,15 @@ a {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+
+    .reveal,
+    .reveal-hidden,
+    .reveal-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    .skip-link {
+        transition: none;
+    }
 }
