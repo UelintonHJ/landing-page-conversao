@@ -5,31 +5,31 @@ type RevealProps = {
     className?: string
 }
 
+function shouldRevealImmediately() {
+    if (typeof window === 'undefined') {
+        return true
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    return prefersReducedMotion || !('IntersectionObserver' in window)
+}
+
 export function Reveal({
     children,
     className = '',
 }: RevealProps) {
     const elementRef = useRef<HTMLDivElement>(null)
-    const [isVisible, setIsVisible] = useState(false)
-    const [isObserverActive, setIsObserverActive] = useState(false)
+    const [isVisible, setIsVisible] = useState(shouldRevealImmediately)
 
     useEffect(() => {
         const element = elementRef.current
 
-        if (!element) {
+        if (!element || shouldRevealImmediately()) {
             return
         }
-
-        const prefersReducedMotion = window.matchMedia(
-            '(prefers-reduced-motion: reduce)',
-        ).matches
-
-        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-            setIsVisible(true)
-            return
-        }
-
-        setIsObserverActive(true)
 
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -53,18 +53,12 @@ export function Reveal({
         }
     }, [])
 
-    const revealState = isObserverActive
-        ? isVisible
-            ? 'reveal-visible'
-            : 'reveal-hidden'
-            : 'reveal-visible'
-
     return (
         <div
             ref={elementRef}
             className={[
                 'reveal',
-                revealState,
+                isVisible ? 'reveal-visible' : 'reveal-hidden',
                 className,
             ]
                 .filter(Boolean)
