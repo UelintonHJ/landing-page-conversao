@@ -1,5 +1,5 @@
 import { Header } from '../components/layout/Header'
-
+import { Reveal } from '../components/ui/Reveal'
 import { HeroSection } from '../components/sections/HeroSection'
 import { BenefitsSection } from '../components/sections/BenefitsSection'
 import { AboutSection } from '../components/sections/AboutSection'
@@ -13,12 +13,29 @@ export function App() {
             <Header />
 
             <main>
-                <HeroSection />
-                <BenefitsSection />
-                <AboutSection />
-                <SpeakersSection />
-                <ScheduleSection />
-                <CTASection />
+                <Reveal>
+                    <HeroSection />
+                </Reveal>
+
+                <Reveal>
+                    <BenefitsSection />
+                </Reveal>
+
+                <Reveal>
+                    <AboutSection />
+                </Reveal>
+
+                <Reveal>
+                    <SpeakersSection />
+                </Reveal>
+
+                <Reveal>
+                    <ScheduleSection />
+                </Reveal>
+
+                <Reveal>
+                    <CTASection />
+                </Reveal>
             </main>
         </>
     )
