@@ -10,6 +10,12 @@ type FormValues = {
 
 type FormErrors = Partial<Record<keyof FormValues, string>>
 
+type SubmissionStatus =
+    | 'idle'
+    | 'submitting'
+    | 'success'
+    | 'error'
+
 const initialValues: FormValues = {
     name: '',
     email: '',
@@ -29,17 +35,52 @@ function validateForm(values: FormValues): FormErrors {
 
     if (!email) {
         errors.email = 'Digite seu e-mail.'
-    } else if (!/^[^\s@]+@[^\s@]+\[^\s@]+$/.test(email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         errors.email = 'Digite um e-mail válido.'
     }
 
     return errors
 }
 
+async function submitRegistration(
+    values: FormValues,
+    website: string,
+) {
+    const response = await fetch('/api/registrations', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: values.name.trim(),
+            email: values.email.trim(),
+            website,
+        }),
+    })
+
+    let data: { error?: string } = {}
+
+    try {
+        data = await response.json()
+    } catch {
+
+    }
+
+    if (!response.ok) {
+        throw new Error(
+            data.error ??
+            'Não foi possível concluir sua inscrição.',
+        )
+    }
+}
+
 export function RegistrationForm() {
     const [values, setValues] = useState<FormValues>(initialValues)
     const [errors, setErrors] = useState<FormErrors>({})
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [status, setStatus] = useState<SubmissionStatus>('idle')
+    const [submitError, setSubmitError] = useState('')
+
+    const isSubmitting = status === 'submitting'
 
     function handleChange(
         field: keyof FormValues,
@@ -57,24 +98,47 @@ export function RegistrationForm() {
             }))
         }
 
-        if (isSubmitted) {
-            setIsSubmitted(false)
+        if (status !== 'idle') {
+            setStatus('idle')
+            setSubmitError('')
         }
     }
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(
+        event: FormEvent<HTMLFormElement>,
+    ) {
         event.preventDefault()
 
         const validationErrors = validateForm(values)
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors)
-            setIsSubmitted(false)
+            setStatus('error')
+            setSubmitError('')
             return
         }
 
+        const formData = new FormData(event.currentTarget)
+        const website = String(formData.get('website') ?? '')
+
         setErrors({})
-        setIsSubmitted(true)
+        setSubmitError('')
+        setStatus('submitting')
+
+        try {
+            await submitRegistration(values, website)
+
+            setValues(initialValues)
+            setStatus('success')
+        } catch (error) {
+            setStatus('error')
+
+            setSubmitError(
+                error instanceof Error
+                    ? error.message
+                    : 'Não foi possível concluir sua inscrição.',
+            )
+        }
     }
 
     return (
@@ -83,6 +147,7 @@ export function RegistrationForm() {
             onSubmit={handleSubmit}
             className="mx-auto mt-10 max-w-xl text-left"
             aria-describedby="registration-description"
+            aria-busy={isSubmitting}
         >
             <Typography
                 variant="small"
@@ -92,9 +157,18 @@ export function RegistrationForm() {
                 Preencha seus dados para garantir sua participação gratuita.
             </Typography>
 
+            <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+            />
+
             <div className="space-y-6">
                 <div>
-                    <label 
+                    <label
                         htmlFor="registration-name"
                         className="mb-2 block text-sm font-semibold text-white"
                     >
@@ -103,13 +177,13 @@ export function RegistrationForm() {
 
                     <input
                         id="registration-name"
-                        name="name" 
+                        name="name"
                         type="text"
                         autoComplete="name"
                         value={values.name}
                         onChange={(event) =>
                             handleChange('name', event.target.value)
-                        } 
+                        }
                         aria-invalid={Boolean(errors.name)}
                         aria-describedby={
                             errors.name
@@ -132,14 +206,14 @@ export function RegistrationForm() {
                 </div>
 
                 <div>
-                    <label 
+                    <label
                         htmlFor="registration-email"
                         className="mb-2 block text-sm font-semibold text-white"
                     >
                         E-mail
                     </label>
 
-                    <input 
+                    <input
                         id="registration-email"
                         name="email"
                         type="email"
@@ -148,9 +222,9 @@ export function RegistrationForm() {
                         value={values.email}
                         onChange={(event) =>
                             handleChange('email', event.target.value)
-                        }    
+                        }
                         aria-invalid={Boolean(errors.email)}
-                        aria-descripdby={
+                        aria-describedby={
                             errors.email
                                 ? 'registration-email-error'
                                 : undefined
@@ -176,19 +250,31 @@ export function RegistrationForm() {
                     type="submit"
                     variant="inverse"
                     size="lg"
+                    disabled={isSubmitting}
                     className="w-full sm:w-auto"
                 >
-                    Garantir minha vaga
+                    {isSubmitting
+                        ? 'Enviando...'
+                        : 'Garantir minha vaga'}
                 </Button>
             </div>
 
-            {isSubmitted && (
+            {status === 'success' && (
                 <p
                     className="mt-4 text-sm text-zinc-300"
                     role="status"
                     aria-live="polite"
                 >
-                    Dados validados com sucesso. A inscrição ainda não está conectada a um serviço de envio.
+                    Inscrição realizada com sucesso. Sua vaga está garantida.
+                </p>
+            )}
+
+            {status === 'error' && submitError && (
+                <p
+                    className="mt-4 text-sm text-red-300"
+                    role="alert"
+                >
+                    {submitError}
                 </p>
             )}
         </form>
