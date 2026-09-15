@@ -3,6 +3,22 @@ import { ArrowRight, CalendarDays, Clock3 } from 'lucide-react'
 import { Button, Container, Typography } from '../ui'
 
 export function HeroSection() {
+    const handleRegistrationScroll = () => {
+        const registrationSection = document.getElementById('inscricao')
+
+        if (!registrationSection) {
+            return
+        }
+
+        const prefersReduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)',
+        ).matches
+
+        registrationSection.scrollIntoView({
+            behavior: prefersReduceMotion ? 'auto' : 'smooth',
+        })
+    }
+
     return (
         <section
             id='inicio'
@@ -25,7 +41,7 @@ export function HeroSection() {
                             id='hero-title'
                             className='max-w-3xl text-white'
                         >
-                            Acelere suas vendas
+                            Acelere suas vendas{' '}
                             <span className='block text-zinc-500'>
                                 no digital.
                             </span>
@@ -42,17 +58,7 @@ export function HeroSection() {
                         <div className='mt-10 flex flex-col gap-4 sm:flex-row'>
                             <Button
                                 variant='inverse'
-                                onClick={() => {
-                                    document
-                                        .getElementById('inscricao')
-                                        ?.scrollIntoView({ 
-                                            behavior: window.matchMedia(
-                                                '(prefers-reduced-motion: reduce)'
-                                            ).matches
-                                                ? 'auto' 
-                                                : 'smooth', 
-                                        })
-                                }}
+                                onClick={handleRegistrationScroll}
                             >
                                 Quero participar gratuitamente
                                 <ArrowRight
@@ -66,17 +72,17 @@ export function HeroSection() {
                             className='mt-12 flex flex-col gap-4 text-sm text-zinc-400 sm:flex-row sm:items-center sm:gap-8'
                         >
                             <span className='inline-flex items-center gap-2'>
-                                <CalendarDays 
-                                    size={17} 
-                                    aria-hidden='true' 
+                                <CalendarDays
+                                    size={17}
+                                    aria-hidden='true'
                                 />
                                 24 de setembro
                             </span>
 
                             <span className='inline-flex items-center gap-2'>
-                                <Clock3 
-                                    size={17} 
-                                    aria-hidden='true' 
+                                <Clock3
+                                    size={17}
+                                    aria-hidden='true'
                                 />
                                 19h
                             </span>

@@ -45,7 +45,7 @@ export function BenefitsSection() {
                         id='benefits-title'
                         className='mt-4 max-w-xl text-2xl sm:text-4xl'
                     >
-                        Menos teoria. 
+                        Menos teoria.{' '} 
                         <span className='block sm:inline'> Mais aplicação.</span> 
                     </Typography>
                 </div>
