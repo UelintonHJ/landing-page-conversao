@@ -28,3 +28,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Supabase local development
+supabase/.temp/
+supabase/.branches/
