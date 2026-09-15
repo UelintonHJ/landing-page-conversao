@@ -58,12 +58,12 @@ async function submitRegistration(
         }),
     })
 
-    let data: { error?: string } = {}
+    let data: { error?: string } 
 
     try {
         data = await response.json()
     } catch {
-
+        data = {}
     }
 
     if (!response.ok) {
