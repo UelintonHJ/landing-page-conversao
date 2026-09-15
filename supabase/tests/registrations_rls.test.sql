@@ -40,7 +40,7 @@ select ok(
 
 select ok(
     not has_table_privilege(
-        'autheticated',
+        'authenticated',
         'public.registrations',
         'INSERT'
     ),
