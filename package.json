@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:lighthouse": "npm run build && npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.json"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
