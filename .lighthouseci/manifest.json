@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://localhost:51540/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_51_07.report.html",
+    "jsonPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_51_07.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:51540/",
+    "isRepresentativeRun": false,
+    "htmlPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_51_19.report.html",
+    "jsonPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_51_19.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:51540/",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_50_56.report.html",
+    "jsonPath": "C:\\Users\\uelin\\Desktop\\acelera-digital\\.lighthouseci\\localhost--2026_09_15_19_50_56.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  }
+]
