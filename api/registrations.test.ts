@@ -119,7 +119,7 @@ describe('POST /api/registrations', () => {
         expect(response.status).toBe(409)
 
         await expect(response.json()).resolves.toEqual({
-            error: 'Error e-mail já está inscrito.',
+            error: 'Este e-mail já está inscrito.',
         })
     })
 
