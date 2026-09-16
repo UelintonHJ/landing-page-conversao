@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { App } from './App'
@@ -35,8 +35,14 @@ describe('App', () => {
     it('renders the primary navigation and skip link', () => {
         render(<App />)
 
+        const primaryNavigation = screen.getByRole('navigation', {
+            name: /navegação principal/i,
+        })
+
         expect(
-            screen.getByRole('link', { name: /acelera/i }),
+            within(primaryNavigation).getByRole('link', {
+                name: /acelera/i,
+            }),
         ).toHaveAttribute('href', '#inicio')
 
         expect(
