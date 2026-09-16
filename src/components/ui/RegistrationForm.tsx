@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import va from '@vercel/analytics'
 
 import { Button } from './Button';
 import { Typography } from "./Typography";
@@ -23,7 +24,6 @@ const initialValues: FormValues = {
 
 function validateForm(values: FormValues): FormErrors {
     const errors: FormErrors = {}
-
     const name = values.name.trim()
     const email = values.email.trim()
 
@@ -130,6 +130,8 @@ export function RegistrationForm() {
 
             setValues(initialValues)
             setStatus('success')
+
+            va.track('registration_completed')
         } catch (error) {
             setStatus('error')
 
