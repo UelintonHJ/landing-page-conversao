@@ -30,6 +30,7 @@ const benefits = [
 export function BenefitsSection() {
     return (
         <section
+            id='beneficios'
             aria-labelledby='benefits-title'
             className='bg-ui-surface py-24 sm:py-32'
         >
