@@ -9,6 +9,7 @@ import { AboutSection } from '../components/sections/AboutSection'
 import { SpeakersSection } from '../components/sections/SpeakersSection'
 import { ScheduleSection } from '../components/sections/ScheduleSection'
 import { CTASection } from '../components/sections/CTASection'
+import { FAQSection } from '../components/sections/FAQSection'
 
 export function App() {
     return (
@@ -38,6 +39,10 @@ export function App() {
 
                 <Reveal>
                     <ScheduleSection />
+                </Reveal>
+
+                <Reveal>
+                    <FAQSection />
                 </Reveal>
 
                 <Reveal>
