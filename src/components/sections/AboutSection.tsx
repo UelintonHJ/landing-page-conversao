@@ -3,6 +3,7 @@ import { Container, Typography } from '../ui'
 export function AboutSection() {
     return (
         <section
+            id='sobre'
             aria-labelledby='about-title'
             className='bg-surface-subtle py-24 sm:py-32'
         >
