@@ -1,3 +1,6 @@
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+
 import { Header } from '../components/layout/Header'
 import { Reveal } from '../components/ui/Reveal'
 import { HeroSection } from '../components/sections/HeroSection'
@@ -41,6 +44,9 @@ export function App() {
                     <CTASection />
                 </Reveal>
             </main>
+
+            <Analytics />
+            <SpeedInsights />
         </>
     )
 }
