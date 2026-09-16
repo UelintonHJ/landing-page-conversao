@@ -46,7 +46,7 @@ async function submitRegistration(
     values: FormValues,
     website: string,
 ) {
-    const response = await fetch('/api/registrations', {
+    const response = await fetch('/api/registration', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
